@@ -1,0 +1,31 @@
+sync on
+sync rate 30
+
+xpos=50
+ypos=150
+xxpos=450
+yypos=150
+
+while xpos<600 and xxpos>50
+load image "mars-11.bmp",1
+sprite 1,xpos,ypos,1
+load image "mars-11.bmp",2
+sprite 2,xxpos,yypos,2
+if sprite collision(2,1)=1 then exit
+
+xpos=xpos+1
+xxpos=xxpos-1
+
+sync
+endwhile
+fred()
+
+end
+
+function fred()
+delete sprite 2
+delete sprite 1
+cls
+set text size 36
+center text 320,200,"Kersplosion"
+endfunction
